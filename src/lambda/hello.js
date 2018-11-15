@@ -5,13 +5,10 @@ const obj = {
 };
 export function handler(event, context, callback) {
   console.log("queryStringParameters", event.queryStringParameters);
-  exec('env/bin/python -c "import sys; print sys.version_info"', function(
-    error,
-    stdout
-  ) {
+  exec("pwd", function(error, stdout) {
     callback(null, {
       statusCode: 200,
-      body: JSON.stringify({ msg: "Hello, World!", ...obj })
+      body: JSON.stringify({ msg: stdout, ...obj })
     });
   });
 }
