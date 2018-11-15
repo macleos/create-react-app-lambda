@@ -5,7 +5,7 @@ const obj = {
 };
 export function handler(event, context, callback) {
   console.log("queryStringParameters", event.queryStringParameters);
-  exec("pwd", function(error, stdout) {
+  exec("ls", function(error, stdout) {
     callback(null, {
       statusCode: 200,
       body: JSON.stringify({ msg: stdout, ...obj })
